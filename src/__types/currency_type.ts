@@ -1,4 +1,4 @@
 export type CurrencyType = {
-  name: string;
-  conversionRate: number;
-}
+	name: string;
+	conversionRate: number;
+};

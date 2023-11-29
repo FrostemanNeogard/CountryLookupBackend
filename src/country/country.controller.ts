@@ -4,11 +4,11 @@ import { CountryParamsType } from 'src/__types/country_types';
 
 @Controller('country')
 export class CountryController {
-  constructor(private readonly countryService: CountryService) {}
+	constructor(private readonly countryService: CountryService) {}
 
-  @Get(':name')
-  getCountryData(@Param('name') name: CountryParamsType) {
-    const data = this.countryService.getCountryData(name);
-    return data;
-  }
+	@Get(':name')
+	getCountryData(@Param('name') name: CountryParamsType) {
+		const data = this.countryService.getCountryData(name);
+		return data;
+	}
 }
