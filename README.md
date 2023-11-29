@@ -1,5 +1,12 @@
-## CountryLookupBackend
-This is a server made to be used with the frontend repository which can be found [here](https://github.com/FrostemanNeogard/CountryLookupFrontend).
+# Country Lookup Backend
+
+This is a server made to be used with the [Country Lookup Frontend](https://github.com/FrostemanNeogard/CountryLookupFrontend).
+
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Endpoints](#endpoints)
+- [Packages Used](#packages-used)
 
 ## Installation
 
@@ -32,13 +39,13 @@ This is a server made to be used with the frontend repository which can be found
 
 After installation, the API will be available at `http://localhost:3000` by default, this can be changed in the `config.ts` file. You can use tools like `curl` or Postman to interact with the API.
 
-## API Endpoints
+## Endpoints
 
 - **POST /auth/login  (PUBLIC)**: Authenticate user via username and password.
   - Note: this server is not connected to a database and only contains one valid hard-coded login, that being `username: admin password: admin`.
 - **GET /country/{name} (PROTECTED)**: Retrieve an object containing information regarding the given country.
 
-## Node packages used for this repository:
+## Packages used
 - @nestjs
   - [/axios](https://www.npmjs.com/package/@nestjs/axios)
   - [/common](https://www.npmjs.com/package/@nestjs/common)
