@@ -3,6 +3,7 @@ import { CountryParamsType, CountryType } from 'src/__types/country_types';
 import { HttpService } from '@nestjs/axios';
 import { firstValueFrom } from 'rxjs';
 import { CurrencyType } from 'src/__types/currency_type';
+import { FIXER_API_URL, RESTCOUNTRIES_API_URL } from 'src/config';
 
 @Injectable()
 export class CountryService {
@@ -19,7 +20,7 @@ export class CountryService {
   }
 
   private async fetchCountryAPI(countryName: CountryParamsType) {
-    const API_URL = new URL(process.env.RESTCOUNTRIES_API_URL);
+    const API_URL = new URL(RESTCOUNTRIES_API_URL);
     API_URL.pathname += `name/${countryName}`;
     const response = await firstValueFrom(this.httpService.get(API_URL.href));
     const country = response.data[0]
@@ -40,7 +41,7 @@ export class CountryService {
   }
 
   private async getCurrencyData(country) {
-    const API_URL = new URL(`${process.env.FIXER_API_URL}latest?access_key=${process.env.FIXER_API_KEY}`);
+    const API_URL = new URL(`${FIXER_API_URL}latest?access_key=${process.env.FIXER_API_KEY}`);
     const response = await firstValueFrom(this.httpService.get(API_URL.href))
     const { rates } = response.data;
     const sekConversionRate = rates['SEK']
